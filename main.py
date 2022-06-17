@@ -5,17 +5,17 @@ from typing import Optional
 
 app = FastAPI()
 
-
+# first
 @app.get('/')
 def home():
     return {"name": 'mahdi'}
 
-
+# var
 @app.get('/blog/{id}')
 def blog(id: int):
     return {"message": f"blog id is {id}"}
 
-
+# custom type
 class BlogType(str, Enum):
     type1 = 'food'
     type2 = 'car'
@@ -26,11 +26,11 @@ class BlogType(str, Enum):
 def blog_type(type: BlogType):
     return {'message': f'blog type is {type=}'}
 
-
-# @app.get('/blog', status_code = status.HTTP_200_OK)
-# def GetBlog(page:int, response:Response):
-#     if page > 20:
-#         response.status_code = status.HTTP_404_NOT_FOUND
-#     else:
-#         response.status_code = status.HTTP_200_OK
-#         return {'message': f'page is {page=}'}
+# custom status
+@app.get('/blog', status_code = status.HTTP_200_OK)
+def GetBlog(page:int, response:Response):
+    if page > 20:
+        response.status_code = status.HTTP_404_NOT_FOUND
+    else:
+        response.status_code = status.HTTP_200_OK
+        return {'message': f'page is {page=}'}
