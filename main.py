@@ -34,3 +34,8 @@ def GetBlog(page:int, response:Response):
     else:
         response.status_code = status.HTTP_200_OK
         return {'message': f'page is {page=}'}
+    
+# default value
+@app.get('/blog/')
+def get_page(page:Optional[int]=1, number:int=None):
+    return {'message': f'{page=} and {number=}'}
