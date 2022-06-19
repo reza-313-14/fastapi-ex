@@ -10,7 +10,7 @@ app = FastAPI()
 def home():
     return {"name": 'mahdi'}
 
-# var
+# path arguments
 @app.get('/blog/{id}')
 def blog(id: int):
     return {"message": f"blog id is {id}"}
