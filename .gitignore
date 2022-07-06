@@ -1,2 +1,4 @@
 /__pycache__
 /.env
+router/__pycache__
+database/__pycache__
