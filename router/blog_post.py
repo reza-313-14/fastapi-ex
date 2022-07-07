@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Query, Path, Body
 from pydantic import BaseModel
+from typing import Optional
 
 
 router = APIRouter(prefix='/blog/post', tags=['posts'])
