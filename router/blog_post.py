@@ -18,8 +18,8 @@ def create_blog(blog:BlogModel, id:int=Path(None, gt=2), version:int=None):
 
 """
 
-gt = greate than 
-ge = greate or equal
+gt = great than 
+ge = great or equal
 lt = less than
 le = less or equal
 

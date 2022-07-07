@@ -12,7 +12,7 @@ from database.db_user import get_user_by_username
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
-SECRET_KEY = "17cd7bc169521e5b0f0efb9cd41472c83b747912795e3e624888e873809c5db4"
+SECRET_KEY = "17cd7bc169521e5b0f0efb9cd41472c83b747912795e3e624888e873809c5db4" # in linux : openssl rand -hex 32
 ALGORITHM = 'HS256'
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
