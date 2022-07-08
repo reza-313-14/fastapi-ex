@@ -1,14 +1,21 @@
 from fastapi import APIRouter, Response, Header, Cookie, Form
 from fastapi.responses import HTMLResponse, PlainTextResponse
 from typing import List, Optional
-
+from time import sleep
 
 router = APIRouter(prefix='/product', tags=['product'])
 
 products = ['watch', 'clock', 'microphone']
 
+
+async def test_async():
+    sleep(10000)
+    return "1"
+
+
 @router.get('/')
-def get_all():
+async def get_all():
+    test_async()
     data = " ".join(products)
     response = Response(content=data, media_type="text/plain")
     response.headers['my_header'] = 'test header!'

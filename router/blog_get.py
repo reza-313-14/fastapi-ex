@@ -1,6 +1,7 @@
 from fastapi import APIRouter, status, Response
 from enum import Enum
 from typing import Optional
+from fastapi import BackgroundTasks
 
 
 router = APIRouter(prefix="/blog", tags=['blog'])
@@ -29,9 +30,15 @@ class BlogType(str, Enum):
 def blog_type(type: BlogType):
     return {'message': f'blog type is {type=}'}
 
+
+def log_data(message):
+    with open('log.txt', 'a') as file:
+        file.write(message)
+
 # custom status
 @router.get('/blog', status_code = status.HTTP_200_OK)
-def GetBlog(page:int, response:Response):
+def GetBlog(bt: BackgroundTasks, page:int, response:Response):
+    bt.add_task(log_data, "get all blogs")
     if page > 20:
         response.status_code = status.HTTP_404_NOT_FOUND
     else:
